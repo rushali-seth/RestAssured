@@ -1,11 +1,12 @@
 package Tests;
 
 import files.Payload;
+import files.ReuseableMethods;
 import io.restassured.path.json.JsonPath;
 
 public class ComplexJsonParse {
     public static void main(String[] args){
-        JsonPath js = new JsonPath(Payload.coursePrice());
+        JsonPath js = ReuseableMethods.rawToJson(Payload.coursePrice());
         System.out.println(  js.getInt("courses.size()"));
         int count = js.getInt("courses.size()");
         System.out.println( js.getInt("dashboard.purchaseAmount"));
